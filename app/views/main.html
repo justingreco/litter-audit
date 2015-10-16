@@ -1,0 +1,31 @@
+<!-- <div ng-repeat="image in images">
+<img ng-src="{{image}}" ng-if="$index < 5" style="max-height: 200px"/>
+</div>
+ -->
+
+<!-- <flex-slider slide="image in images" style="background-color: black">
+    <li>
+        <img ng-src="{{image}}" style="max-height: 600px">
+    </li>
+</flex-slider> -->
+
+    <div class="sk-three-bounce">
+      <div class="sk-child sk-bounce1"></div>
+      <div class="sk-child sk-bounce2"></div>
+      <div class="sk-child sk-bounce3"></div>
+    </div>
+  <div style="height: 400px" class="carousel">
+    <uib-carousel on-carousel-change="onSlideChanged(nextSlide, direction)" interval="myInterval" no-wrap="noWrapSlides" style="background-color: #444">
+      <uib-slide ng-repeat="image in images" active="image.active">
+        <img ng-src="{{image.image}}" style="margin:auto;max-height: 400px">
+        <div class="carousel-caption">
+          <h4>Slide {{$index}}</h4>
+          <p>{{slide.text}}</p>
+        </div>
+      </uib-slide>
+    </uib-carousel>
+  </div>
+
+      <uib-pagination total-items="totalItems" items-per-page="20" ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>
+
+      <div id="map"></div>
