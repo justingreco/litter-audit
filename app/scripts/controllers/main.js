@@ -14,7 +14,12 @@ angular.module('litterAuditApp')
       'AngularJS',
       'Karma'
     ];
+    var map = L.map('map').setView([35.777, -78.64], 15);
 
+	  L.esri.basemapLayer('Streets').addTo(map);
+	  L.esri.clusteredFeatureLayer({
+	    url: 'http://services.arcgis.com/v400IkDOw1ad7Yad/arcgis/rest/services/Litter_WFL/FeatureServer/0'
+	  }).addTo(map);
 var toggleCarousel = function (hide) {
 	if (hide) {
 		$(".sk-three-bounce").show();
@@ -80,12 +85,7 @@ $scope.onSlideChanged = function (nextSlide, direction) {
     	getPhotos();
     };
 
-    var map = L.map('map').setView([35.777, -78.64], 15);
 
-	  L.esri.basemapLayer('Streets').addTo(map);
-	  L.esri.clusteredFeatureLayer({
-	    url: 'http://services.arcgis.com/v400IkDOw1ad7Yad/arcgis/rest/services/Litter_WFL/FeatureServer/0'
-	  }).addTo(map);
 
   })
    .factory('litter', ['$http', '$q', function($http, $q){
